@@ -2,3 +2,13 @@
 다나카상
 다시마
 다시마상
+사과
+기술
+& "C:/Program Files/Python39/python.exe" c:/Users/codeplayVIVO4/Desktop/1231/python_basic/word_input.py
+사과'
+기술
+마
+가
+나
+다
+라

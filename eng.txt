@@ -2,3 +2,13 @@ dasima
 calf
 dashima
 Mr. dashima
+apple
+technology
+& "C:/Program Files/Python39/python.exe" c:/Users/codeplayVIVO4/Desktop/1231/python_basic/word_input.py
+apple
+technology
+ma
+ga
+na
+da
+ra
