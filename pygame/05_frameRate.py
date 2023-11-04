@@ -11,6 +11,12 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 # 화면 타이틀 (제목장)
 pygame.display.set_caption("못난놈 잘난놈 못된놈 잘된놈 못말리는놈 잘말리는놈 피하기")
 
+# FPS
+clock = pygame.time.Clock()
+
+# 이동속도 고정
+chaaracter_speed = 1
+
 # 이미지 불러오기 (배경)
 bg = pygame.image.load("pygame/source/bg.png")
 
@@ -31,6 +37,7 @@ to_y = 0
 # 이벤트 루프 - 종료까지 대기
 running = True
 while running:
+    dt = clock.tick(100)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -49,8 +56,8 @@ while running:
             elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 to_y = 0
 
-    character_xPos += to_x
-    character_yPos += to_y
+    character_xPos += to_x * dt
+    character_yPos += to_y * dt
 
 # 가로 스크린내 안벗어나게
     if character_xPos < 0:
