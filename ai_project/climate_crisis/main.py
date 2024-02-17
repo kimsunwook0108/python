@@ -150,6 +150,50 @@ clock = pygame.time.Clock()
 spawn_counter = 0
 lightning_counter = 0
 
+pygame.font.init()
+font_path = "ai_project/climate_crisis/source/font.ttf"
+font_size = 26
+font = pygame.font.Font(font_path, font_size)
+
+intro_txt = ["악덕하고 못되고 멍청하고 이상하고 나쁜 인간들 때문에", "오늘도 뽀로로는 위험에 처했다", "과연 뽀로로는 살아남을 수 있을 것인가?"]
+# current_path = os.path.dirname()
+
+def show_intro_screen():
+    intro_txt = ["악덕하고 못되고 멍청하고 이상하고 나쁜 인간들 때문에",
+             "오늘도 뽀로로는 위험에 처했다",
+             "과연 뽀로로는 살아남을 수 있을 것인가?"]
+
+    # 텍스트 렌더링
+    text_surface_list = []
+    for line in intro_txt:
+        text_surface = font.render(line, True, (255, 255, 255))
+        text_surface_list.append(text_surface)
+
+    # 텍스트 위치 계산
+    text_rect_list = []
+    for i, text_surface in enumerate(text_surface_list):
+        text_rect = text_surface.get_rect(center=(screen_width//2, screen_height//2 + i * 30))
+        text_rect_list.append(text_rect)
+        screen.blit(text_surface, text_rect)
+        pygame.display.flip()
+
+# 인트로 화면 표시
+show_intro_screen()
+
+# 게임 시작을 대기하는 부분
+waiting_for_start = True
+while waiting_for_start:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                waiting_for_start = False  # 스페이스 키를 누르면 대기 상태 종료
+
+
+
+
 while True:
     current_time = pygame.time.get_ticks()
     elapsed_time = (current_time - game_start_time) // 1000
